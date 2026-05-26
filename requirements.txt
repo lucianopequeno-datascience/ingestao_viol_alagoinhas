@@ -1,0 +1,6 @@
+pysus==1.0.1
+httpx
+pandas
+google-cloud-storage
+fastparquet
+pyarrow

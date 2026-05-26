@@ -1,0 +1,15 @@
+steps:
+  # Passo 1: Fazer o build da imagem Docker
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 'gcr.io/$PROJECT_ID/sinan-violencia-ingestor:latest', '.']
+
+  # Passo 2: Fazer o push da imagem para o Google Container Registry (ou Artifact Registry)
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'gcr.io/$PROJECT_ID/sinan-violencia-ingestor:latest']
+
+images:
+  - 'gcr.io/$PROJECT_ID/sinan-violencia-ingestor:latest'
+
+# Configuração solicitada: forçar o registro dos logs apenas no Cloud Logging
+options:
+  logging: CLOUD_LOGGING_ONLY
